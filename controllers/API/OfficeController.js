@@ -7,7 +7,7 @@ exports.OfficeController = new function() {
             data.splice(0, 1);
             let row = [];
             data.forEach((v, i) => {
-                if (data[i][3].toLowerCase().trim() == 'kantor') {
+                if (data[i][3].toLowerCase().trim() != 'kantor') {
                     row.push(({
                         id: data[i][2],
                         name: data[i][3],
