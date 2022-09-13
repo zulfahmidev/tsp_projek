@@ -19,6 +19,8 @@
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 <body>
 
+
+
     <div class="container" id="ui">
         <div class="container py-4 px-5 shadow rounded bg-white" style="height: 90vh;">
             <div class="h3">Tiang</div>
@@ -52,7 +54,10 @@
         </div>
     </div>
 
-    <div class="btn btn-primary shadow d-none" id="btn_reset_route"><i class="fa fa-refresh fa-fw"></i> <b>Atur Ulang</b></div>
+    <div id="flying_info" class="d-none">
+        <div class="p-2 rounded bg-white d-inline-block shadow" id="distance_info">Jarak: 0 Km.</div>
+        <div class="btn btn-primary shadow d-inline-block" id="btn_reset_route"><i class="fa fa-refresh fa-fw"></i> <b>Atur Ulang</b></div>
+    </div>
 
     <div class="modal fade" id="modalImport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalImportLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

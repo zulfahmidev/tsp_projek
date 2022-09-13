@@ -6,13 +6,13 @@ const Office = function(id, name, position) {
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
             fillOpacity: 0.5,
-            fillColor: "red",
+            fillColor: "green",
             strokeOpacity: 1.0,
-            strokeColor: "red",
+            strokeColor: "green",
             strokeWeight: 2.0,
             scale: 10.0
         },
-        visible: false,
+        // visible: false,
     })
 
     this.setVisible = (bool) => marker.setVisible(bool);

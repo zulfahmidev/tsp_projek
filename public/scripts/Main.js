@@ -2,6 +2,8 @@ let isModeSetBroken = false;
 let isModeFindRoute = false;
 let dataTable;
 
+let distance = 0;
+
 function main() {
 
     map = new GMap("#map", 5.176745235, 97.13243756);
@@ -72,14 +74,15 @@ $('#btn_find_route').click(() => {
     if (dataTable.rows({selected: true})[0].length > 0) {
         getRoute();
         $('#ui').addClass('d-none');
-        $('#btn_reset_route').removeClass('d-none');
+        $('#flying_info').removeClass('d-none');
+        $('#distance_info').html(`Jarak: ${distance} Km.`)
         Towers.getBrokenTowers().forEach(v => v.setVisible(true))
     }
 })
 $('#btn_reset_route').click(() => {
     if (dataTable.rows({selected: true})[0].length > 0) {
         $('#ui').removeClass('d-none');
-        $('#btn_reset_route').addClass('d-none');
+        $('#flying_info').addClass('d-none');
         Towers.getBrokenTowers().forEach(v => v.setVisible(false))
         resetRoute()
     }

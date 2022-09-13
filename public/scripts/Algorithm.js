@@ -4,6 +4,8 @@ var nwps = [];
 
 var order = [];
 
+var contant = 0.05;
+
 var recordDistance;
 var totalPermutations;
 var count = 1;
@@ -44,7 +46,7 @@ async function getRoute() {
 
   totalPermutations = factorial(waypoints.length);
   let result;
-  while (da < 10) {
+  while (da < Math.ceil(contant * 100)) {
     await directionService.route({
       origin: waypoints[0].location, destination: waypoints[0].location, waypoints: getWayPoints(),
       travelMode: google.maps.TravelMode['DRIVING'],
@@ -53,6 +55,8 @@ async function getRoute() {
     
       // Calculating Distance
       var d = calcDistance(nwps, order);
+      $('#distance_info').html(`Jarak: ${(d/1000).toFixed(1)} Km.`)
+      console.log(distance);
   
       if (d < recordDistance) {
         recordDistance = d;

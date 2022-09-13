@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-#btn_reset_route {
+#flying_info {
   position: fixed;
   z-index: 99;
   bottom: 2rem;

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 require('dotenv').config()
-require('./utils/DB.js')
+// require('./utils/DB.js')
 process.env = require('./Configs.js').configs;
 const router = require('./Router.js').router;
 
