@@ -4,7 +4,7 @@ var nwps = [];
 
 var order = [];
 
-var contant = 0.05;
+var contant = 0.3;
 
 var recordDistance;
 var totalPermutations;
@@ -22,6 +22,9 @@ async function getRoute() {
   directionService = new google.maps.DirectionsService();
   directionRederer = new google.maps.DirectionsRenderer({
     suppressMarkers: true,
+    polylineOptions: {
+      strokeColor: "black"
+    }
   });
   let broken_towers = Towers.getBrokenTowers();
   let office = Offices.getNearOffice(broken_towers);
@@ -37,26 +40,29 @@ async function getRoute() {
       stopover: true,
     });
   }
+  // console.log(waypoints);
 
   // Init Order Way Points
-  waypoints.slice(1).forEach((v, i) => {
+  waypoints.forEach((v, i) => {
     order[i] = i;
   });
   bestEver = order;
 
   totalPermutations = factorial(waypoints.length);
   let result;
-  while (da < Math.ceil(contant * 100)) {
+  while (da < 1) {
+    // let wps = getWayPoints();
     await directionService.route({
-      origin: waypoints[0].location, destination: waypoints[0].location, waypoints: getWayPoints(),
+      origin: waypoints[0].location, destination: waypoints[0].location, waypoints, optimizeWaypoints: true,
       travelMode: google.maps.TravelMode['DRIVING'],
     }).then(res => {
       nwps = res.routes[0].legs; // new way points
+      // console.log(nwps)
     
       // Calculating Distance
       var d = calcDistance(nwps, order);
       $('#distance_info').html(`Jarak: ${(d/1000).toFixed(1)} Km.`)
-      console.log(distance);
+      // console.log(distance);
   
       if (d < recordDistance) {
         recordDistance = d;
@@ -74,9 +80,10 @@ async function getRoute() {
 }
 
 function resetRoute() {
-  directionRederer.setMap(null);
-  Offices.setVisible(false);
-  dataTable.rows().deselect();
+  location.reload();
+  // directionRederer.setMap(null);
+  // Offices.setVisible(false);
+  // dataTable.rows().deselect();
 }
 
 function getWayPoints() {

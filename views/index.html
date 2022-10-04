@@ -23,33 +23,48 @@
 
     <div class="container" id="ui">
         <div class="container py-4 px-5 shadow rounded bg-white" style="height: 90vh;">
-            <div class="h3">Tiang</div>
-            <div class="text-black-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid.</div>
-            
-            <div class="row my-3">
-                <div class="col-6">
-                    <div class="btn-group" role="group" aria-label="Action">
-                        <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#modalImport"><i class="fa fa-file-import fa-fw"></i> <b>Import Excel</b></button>
-                        <button class="btn btn-sm btn-primary" id="btn_find_route"><i class="fa fa-route fa-fw"></i> <b>Find Route</b></button>
+            <div id="search-box">
+                <div class="w-lg-50 m-auto">
+                    <p class="text-black-50 text-center">Anda dapat mencari berdasarkan Kode Tiang, Longitude atau Latitude</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Ketik disini..."  id="search_code">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="search-button">Cari</button>
+                        </div>
+                        <div class="invalid-feedback">
+                            Inputan wajib di isi.
+                        </div>
                     </div>
                 </div>
-                <div class="col-6" style="text-align: right;">
-                    <div class="d-inline-block small">Search Code: </div>
-                    <input type="text" id="search_code" class="form-control d-inline-block w-50 form-control-sm" placeholder="Type code here">
-                </div>
             </div>
-
-            <div class="table-wrapper">
-                <table class="table table-striped table-light" id="tiang">
-                    <thead>
-                        <tr>
-                            <th>Code</th>
-                            <th>Latitude</th>
-                            <th>Longitude</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div id="tower" class="d-none">
+                <div class="h3">Daftar Tiang</div>
+                <div class="text-black-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid.</div>
+                
+                <div class="row my-3">
+                    <div class="col-6">
+                        <div class="btn-group" role="group" aria-label="Action">
+                            <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#modalImport"><i class="fa fa-file-import fa-fw"></i> <b>Import Data</b></button>
+                            <button class="btn btn-sm btn-primary" id="btn_find_route"><i class="fa fa-route fa-fw"></i> <b>Cari Rute</b></button>
+                        </div>
+                    </div>
+                    <div class="col-6" style="text-align: right;">
+                        <button class="btn btn-sm btn-danger" id="back-button"><i class="fa fa-arrow-left fa-fw"></i> <b>Kembali ke pencarian</b></button>
+                    </div>
+                </div>
+    
+                <div class="table-wrapper">
+                    <table class="table table-striped table-light" id="tiang">
+                        <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

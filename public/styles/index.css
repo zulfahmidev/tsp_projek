@@ -19,3 +19,10 @@
   bottom: 2rem;
   right: 2rem;
 }
+
+#search-box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */
